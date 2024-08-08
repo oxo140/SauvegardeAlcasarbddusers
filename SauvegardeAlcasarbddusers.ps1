@@ -1,11 +1,11 @@
 #Pause de sécurité le temps de la connexion
 # Spécifiez les informations d'identification
-$nomUtilisateur = "Crit"
-$motDePasse = ConvertTo-SecureString -String "Crit767676" -AsPlainText -Force
+$nomUtilisateur = "Login"
+$motDePasse = ConvertTo-SecureString -String "Mot de passe" -AsPlainText -Force
 $credentials = New-Object -TypeName PSCredential -ArgumentList $nomUtilisateur, $motDePasse
 
 # Spécifiez le chemin réseau et le nom de lecteur
-$cheminReseau = "\\sshfs\crit@172.16.0.1"
+$cheminReseau = "\\sshfs\login@ipduserveur"
 $nomLecteur = "Z"
 
 # Connectez le lecteur réseau avec les informations d'identification
@@ -22,14 +22,14 @@ Start-Sleep -Seconds 10
 $sourcePath = "Z:\sauvegarde\*"
 
 # Le chemin de destination de la copie
-$destinationPath = "C:\Users\Unifi\Documents\sauvegardealcasaruser"
+$destinationPath = "C:\sauvegarde"
 
 # La copie
 Copy-Item $sourcePath $destinationPath -Force
 
 # Pause de sécurité le temps de la connexion
 # Chemin du répertoire à nettoyer
-$repertoire = "C:\Users\Unifi\Documents\sauvegardealcasaruser"
+$repertoire = "C:\sauvegarde"
 
 # Récupération de la date actuelle
 $dateActuelle = Get-Date
